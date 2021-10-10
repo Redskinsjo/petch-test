@@ -1,0 +1,70 @@
+.page {
+  max-width: 100%;
+  display: flex;
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+}
+
+tbody {
+  border: 1px solid black;
+}
+
+.tr {
+  display: flex;
+  align-items: stretch;
+}
+
+.t-common {
+  font-size: 16px;
+  font-family: "arial, sans-serif";
+  padding: 15px;
+  font-weight: bold;
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.t-common-border {
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.t-last-border {
+  border-bottom: 1px solid black;
+}
+.th {
+  @extend .t-common;
+  background-color: black;
+  color: white;
+}
+
+.td {
+  @extend .t-common;
+  background-color: "white";
+  color: black;
+}
+
+@keyframes animate {
+  0% {
+    background-color: white;
+    color: black;
+  }
+  50% {
+    background-color: black;
+    color: white;
+  }
+  100% {
+    background-color: white;
+    color: black;
+  }
+}
+.td:hover {
+  cursor: pointer;
+  animation: animate infinite 2s;
+}
+
+.dark {
+  background-color: lightgray;
+}
