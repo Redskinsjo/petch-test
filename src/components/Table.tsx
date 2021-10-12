@@ -13,7 +13,7 @@ type Lines = [] | string[][];
 type Loading = undefined | boolean;
 
 function Table() {
-  const { search } = useLocation();
+  let { search } = useLocation();
   const [columns, setColumns] = useState<Columns>();
   const [rows, setRows] = useState<Rows>();
   const [error, setError] = useState<Error>();
@@ -71,7 +71,6 @@ function Table() {
       }
     }
   };
-
   // one side effect to fetch query values
   useEffect(() => {
     fetchQuery();
