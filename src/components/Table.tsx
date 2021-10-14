@@ -123,6 +123,7 @@ function Table() {
   let count = 0;
   let letter = "";
   let index = 0;
+  let lineCount = 0;
 
   return (
     <div className="page">
@@ -138,6 +139,7 @@ function Table() {
           <tbody>
             {rws.map((row, r, arr) => {
               count++;
+              lineCount = 0;
               if (r === 0) {
                 count = Number(columns) - 1;
               } else if (count > Number(columns) - 1) {
@@ -148,9 +150,13 @@ function Table() {
               return (
                 <tr key={idr} className={`tr ${r % 2 !== 0 && "dark"}`}>
                   {cols.map((col, c, arr) => {
+                    const letters = lines[r];
                     if (index === alphabet.length - 1) index = 0;
                     if ((r !== 0 || c !== 0) && c !== count) index++;
-                    if (c !== count) letter = alphabet[index];
+                    if (c !== count && letters) {
+                      letter = letters[lineCount];
+                      lineCount++;
+                    }
 
                     const idc = id();
                     return (
